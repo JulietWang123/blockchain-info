@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>区块链内容素材库 · 2026-03-31</title>
+<title>区块链内容沉淀 · 全量库</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans SC",sans-serif;
@@ -13,10 +13,13 @@ header{text-align:center;padding:40px 0 30px;border-bottom:1px solid #23262f}
 header h1{font-size:1.6em;color:#fff;font-weight:700}
 header .subtitle{color:#888;font-size:.88em;margin-top:8px}
 header .gen-time{color:#555;font-size:.78em;margin-top:4px}
-/* 编辑精选 */
+.nav-bar{display:flex;justify-content:center;gap:16px;margin:20px 0;font-size:.85em}
+.nav-bar a{color:#58a6ff;text-decoration:none;padding:6px 16px;border:1px solid #23262f;border-radius:6px}
+.nav-bar a:hover{background:#1e2130;border-color:#58a6ff}
 .picks-section{margin:32px 0;padding:24px;background:linear-gradient(135deg,#1a1d2e,#141722);
   border:1px solid #2a2d3e;border-radius:12px}
-.picks-section h2{font-size:1.2em;color:#f1c40f;margin-bottom:16px}
+.picks-section h2{font-size:1.2em;color:#f1c40f;margin-bottom:4px}
+.picks-section .picks-note{font-size:.75em;color:#666;margin-bottom:14px}
 .pick-item{display:flex;align-items:flex-start;padding:10px 0;
   border-bottom:1px solid rgba(255,255,255,.05)}
 .pick-item:last-child{border-bottom:none}
@@ -28,12 +31,13 @@ header .gen-time{color:#555;font-size:.78em;margin-top:4px}
 .pick-meta{font-size:.78em;color:#888;margin-top:3px}
 .cat-tag{display:inline-block;padding:1px 8px;border-radius:4px;color:#fff;font-size:.72em;
   margin-right:6px;vertical-align:middle}
-/* 分类 */
 .category-section{margin:28px 0}
 .category-section h2{font-size:1.15em;color:#fff;display:flex;align-items:center;gap:8px}
 .cat-icon{font-size:1.2em}
 .cat-count{background:#23262f;color:#888;font-size:.7em;padding:2px 8px;border-radius:10px}
 .cat-border{height:2px;margin:8px 0 16px;border-top:2px solid;opacity:.4}
+.week-divider{font-size:.78em;color:#f1c40f;padding:8px 12px;margin:12px 0 4px;
+  background:#161926;border-radius:6px;font-weight:600}
 .art-item{padding:12px 0;border-bottom:1px solid #1e2130}
 .art-item:last-child{border-bottom:none}
 .art-title{font-size:.93em}
@@ -42,7 +46,6 @@ header .gen-time{color:#555;font-size:.78em;margin-top:4px}
 .art-meta{font-size:.76em;color:#666;margin-top:3px}
 .art-summary{font-size:.82em;color:#888;margin-top:6px;padding:8px 12px;
   background:#161926;border-left:3px solid #2a2d3e;border-radius:4px}
-/* 投融资 */
 .funding-section{margin:28px 0}
 .funding-section h2{font-size:1.15em;color:#fff;margin-bottom:12px}
 .funding-card{background:linear-gradient(135deg,#1c3a2a,#142218);border:1px solid #2d5a3a;
@@ -52,15 +55,10 @@ header .gen-time{color:#555;font-size:.78em;margin-top:4px}
 .funding-title a{color:#e0e0e0;text-decoration:none}
 .funding-title a:hover{color:#2ecc71}
 .funding-meta{color:#666;font-size:.8em;margin-top:4px}
-/* 统计 */
 .stats{margin:28px 0;padding:16px;background:#161926;border-radius:8px;
   display:flex;justify-content:space-around;text-align:center}
 .stat-item .num{font-size:1.5em;color:#58a6ff;font-weight:700}
 .stat-item .label{font-size:.72em;color:#666;margin-top:2px}
-/* 历史周报导航 */
-.nav{text-align:center;margin:24px 0;font-size:.82em;color:#555}
-.nav a{color:#58a6ff;text-decoration:none;margin:0 8px}
-.nav a:hover{text-decoration:underline}
 footer{text-align:center;padding:24px 0;color:#444;font-size:.75em;border-top:1px solid #1e2130;margin-top:32px}
 @media(max-width:600px){
   .container{padding:12px}
@@ -72,88 +70,94 @@ footer{text-align:center;padding:24px 0;color:#444;font-size:.75em;border-top:1p
 <body>
 <div class="container">
 <header>
-  <h1>📦 区块链内容素材库</h1>
-  <div class="subtitle">政策优先 · 权威报告 · 技术更新 · 头部KOL深度</div>
-  <div class="gen-time">生成时间：2026-03-31 23:19 · 数据范围：最近 7 天</div>
+  <h1>📚 区块链内容沉淀库</h1>
+  <div class="subtitle">全量累积 · 每周更新 · 持续沉淀</div>
+  <div class="gen-time">最近更新：2026-03-31 23:19 · 累积 1 周数据</div>
 </header>
 
+<div class="nav-bar">
+  <a href="index.html">📰 本周周报</a>
+  <a href="archive.html">📁 历史周报</a>
+</div>
+
 <div class="stats">
-  <div class="stat-item"><div class="num">45</div><div class="label">精选条目</div></div>
-  <div class="stat-item"><div class="num">679</div><div class="label">原始抓取</div></div>
-  <div class="stat-item"><div class="num">634</div><div class="label">过滤噪声</div></div>
-  <div class="stat-item"><div class="num">10</div><div class="label">编辑精选</div></div>
+  <div class="stat-item"><div class="num">44</div><div class="label">全部条目</div></div>
+  <div class="stat-item"><div class="num">1</div><div class="label">累积周数</div></div>
+  <div class="stat-item"><div class="num">10</div><div class="label">近期精选</div></div>
+  <div class="stat-item"><div class="num">1</div><div class="label">投融资</div></div>
 </div>
 
 <section class="picks-section">
-  <h2>⭐ 编辑精选（本周最值得关注）</h2>
+  <h2>⭐ 近期精选</h2>
+  <div class="picks-note">仅展示最近 2 周的编辑精选内容</div>
   <div class="pick-item">
   <span class="pick-num">1</span>
   <div class="pick-content">
     <div class="pick-title"><a href="https://research.web3caff.com/archives/44609" target="_blank" rel="noopener">会员周报：机构级支付链 Tempo 万字研报、Tempo × Stripe 推出机器支付协议 MPP、MoonPay 智能体开放钱包标准 OWS、Bluesky AT Protocol 社交生态潜力</a></div>
-    <div class="pick-meta"><span class="cat-tag" style="background:#2ecc71">深度文章</span> Web3Caff</div>
+    <div class="pick-meta"><span class="cat-tag" style="background:#2ecc71">深度文章</span> Web3Caff · 2026-03-31</div>
   </div>
 </div>
 <div class="pick-item">
   <span class="pick-num">2</span>
   <div class="pick-content">
     <div class="pick-title"><a href="https://research.web3caff.com/archives/43596" target="_blank" rel="noopener">市场脉搏分析：AI 能力再进一步！Virtuals 联手以太坊基金会 dAI 团队推出 AI Agent 间协作与链上结算标准 ERC-8183</a></div>
-    <div class="pick-meta"><span class="cat-tag" style="background:#2ecc71">深度文章</span> Web3Caff</div>
+    <div class="pick-meta"><span class="cat-tag" style="background:#2ecc71">深度文章</span> Web3Caff · 2026-03-31</div>
   </div>
 </div>
 <div class="pick-item">
   <span class="pick-num">3</span>
   <div class="pick-content">
     <div class="pick-title"><a href="https://finance.caixin.com/2026-03-31/102429621.html" target="_blank" rel="noopener">香港首批合规稳定币牌照推迟落地 金管局：正全力推进</a></div>
-    <div class="pick-meta"><span class="cat-tag" style="background:#e74c3c">政策法规</span> 财新</div>
+    <div class="pick-meta"><span class="cat-tag" style="background:#e74c3c">政策法规</span> 财新 · 2026-03-31</div>
   </div>
 </div>
 <div class="pick-item">
   <span class="pick-num">4</span>
   <div class="pick-content">
     <div class="pick-title"><a href="https://research.web3caff.com/archives/41284" target="_blank" rel="noopener">以太坊基础设施巨头 Consensys 万字研报：站在商业化与 IPO 预期十字路口，合规挑战与盈利模型能否兼得？全景拆解其发展史、战略逻辑、优势风险与未来展望</a></div>
-    <div class="pick-meta"><span class="cat-tag" style="background:#e74c3c">政策法规</span> Web3Caff</div>
+    <div class="pick-meta"><span class="cat-tag" style="background:#e74c3c">政策法规</span> Web3Caff · 2026-03-31</div>
   </div>
 </div>
 <div class="pick-item">
   <span class="pick-num">5</span>
   <div class="pick-content">
     <div class="pick-title"><a href="https://research.web3caff.com/archives/42725" target="_blank" rel="noopener">Solana 26 年 Q1 2.5 万字研报（上篇）：通往 “全球统一资本市场” 的十年荆棘与荣光，全景式解析其发展背景、技术根基、生态应用、合规路径及未来展望</a></div>
-    <div class="pick-meta"><span class="cat-tag" style="background:#e74c3c">政策法规</span> Web3Caff</div>
+    <div class="pick-meta"><span class="cat-tag" style="background:#e74c3c">政策法规</span> Web3Caff · 2026-03-31</div>
   </div>
 </div>
 <div class="pick-item">
   <span class="pick-num">6</span>
   <div class="pick-content">
     <div class="pick-title"><a href="https://research.web3caff.com/archives/40616" target="_blank" rel="noopener">传统品牌 Web3 实践万字研报：面向 Web3 长期价值差异化探索，通往南墙还是发掘商机？全景式拆解其发展背景、典型案例、商业模式、合规路径及未来展望</a></div>
-    <div class="pick-meta"><span class="cat-tag" style="background:#e74c3c">政策法规</span> Web3Caff</div>
+    <div class="pick-meta"><span class="cat-tag" style="background:#e74c3c">政策法规</span> Web3Caff · 2026-03-31</div>
   </div>
 </div>
 <div class="pick-item">
   <span class="pick-num">7</span>
   <div class="pick-content">
     <div class="pick-title"><a href="https://www.odaily.news/zh-CN/post/5209941" target="_blank" rel="noopener">CLARITY法案重写DeFi生死簿：Circle吃肉，DeFi代币失血</a></div>
-    <div class="pick-meta"><span class="cat-tag" style="background:#e74c3c">政策法规</span> Odaily星球日报</div>
+    <div class="pick-meta"><span class="cat-tag" style="background:#e74c3c">政策法规</span> Odaily星球日报 · 2026-03-31</div>
   </div>
 </div>
 <div class="pick-item">
   <span class="pick-num">8</span>
   <div class="pick-content">
     <div class="pick-title"><a href="https://www.panewslab.com/zh/articles/019d4316-f3b3-71bb-a82e-a7785e9a9715" target="_blank" rel="noopener">在BTC腰斩近半的熊市中，PANews深度分析揭示市场残酷出清。仅2.6%的资产录得正收益，而JST、Maker等凭借真实现金流与链上需求展现韧性。稳定币正流向Polygon、Aptos等公链，揭示资金重新分配而非离场。穿越周期，唯有“有用”方能生存。</a></div>
-    <div class="pick-meta"><span class="cat-tag" style="background:#e74c3c">政策法规</span> PANews</div>
+    <div class="pick-meta"><span class="cat-tag" style="background:#e74c3c">政策法规</span> PANews · 2026-03-31</div>
   </div>
 </div>
 <div class="pick-item">
   <span class="pick-num">9</span>
   <div class="pick-content">
     <div class="pick-title"><a href="https://research.web3caff.com/archives/42530" target="_blank" rel="noopener">市场脉搏分析：智能体经济改造之路究竟是 Web3 智能化，还是 AI 去中心化？Coinbase 推出 Agentic Wallet 或将给出关键答案</a></div>
-    <div class="pick-meta"><span class="cat-tag" style="background:#2ecc71">深度文章</span> Web3Caff</div>
+    <div class="pick-meta"><span class="cat-tag" style="background:#2ecc71">深度文章</span> Web3Caff · 2026-03-31</div>
   </div>
 </div>
 <div class="pick-item">
   <span class="pick-num">10</span>
   <div class="pick-content">
     <div class="pick-title"><a href="https://research.web3caff.com/archives/42466" target="_blank" rel="noopener">Base 万字研报：从 L2 到链上超级入口，Base 能否承载起 Coinbase 的开放金融梦？全景式拆解其发展历史、战略布局、生态现状、潜在风险与未来展望</a></div>
-    <div class="pick-meta"><span class="cat-tag" style="background:#2ecc71">深度文章</span> Web3Caff</div>
+    <div class="pick-meta"><span class="cat-tag" style="background:#2ecc71">深度文章</span> Web3Caff · 2026-03-31</div>
   </div>
 </div>
 
@@ -162,7 +166,8 @@ footer{text-align:center;padding:24px 0;color:#444;font-size:.75em;border-top:1p
 <section class="category-section">
   <h2><span class="cat-icon">📜</span> 政策法规 <span class="cat-count">15</span></h2>
   <div class="cat-border" style="border-color:#e74c3c"></div>
-  <div class="art-item">
+  <div class="week-divider">2026-03-31</div>
+<div class="art-item">
   <div class="art-title">1. <a href="https://finance.caixin.com/2026-03-31/102429621.html" target="_blank" rel="noopener">香港首批合规稳定币牌照推迟落地 金管局：正全力推进</a></div>
   <div class="art-meta">财新</div>
   
@@ -242,7 +247,8 @@ footer{text-align:center;padding:24px 0;color:#444;font-size:.75em;border-top:1p
 <section class="category-section">
   <h2><span class="cat-icon">📊</span> 行业报告 <span class="cat-count">4</span></h2>
   <div class="cat-border" style="border-color:#3498db"></div>
-  <div class="art-item">
+  <div class="week-divider">2026-03-31</div>
+<div class="art-item">
   <div class="art-title">1. <a href="https://insights.glassnode.com/the-altcoin-vector-45/" target="_blank" rel="noopener">The Altcoin Vector #45</a></div>
   <div class="art-meta">Glassnode Insights · 2026-03-12</div>
   <div class="art-summary">本周针对加密市场最具波动性前沿领域的专业级洞察。 识别山寨币市场中的高确信度交易机会，详见本期独家周报。</div>
@@ -267,7 +273,8 @@ footer{text-align:center;padding:24px 0;color:#444;font-size:.75em;border-top:1p
 <section class="category-section">
   <h2><span class="cat-icon">📝</span> 深度文章 <span class="cat-count">10</span></h2>
   <div class="cat-border" style="border-color:#2ecc71"></div>
-  <div class="art-item">
+  <div class="week-divider">2026-03-31</div>
+<div class="art-item">
   <div class="art-title">1. <a href="https://research.web3caff.com/archives/42530" target="_blank" rel="noopener">市场脉搏分析：智能体经济改造之路究竟是 Web3 智能化，还是 AI 去中心化？Coinbase 推出 Agentic Wallet 或将给出关键答案</a></div>
   <div class="art-meta">Web3Caff</div>
   
@@ -322,7 +329,8 @@ footer{text-align:center;padding:24px 0;color:#444;font-size:.75em;border-top:1p
 <section class="category-section">
   <h2><span class="cat-icon">📡</span> 市场动态 <span class="cat-count">15</span></h2>
   <div class="cat-border" style="border-color:#f39c12"></div>
-  <div class="art-item">
+  <div class="week-divider">2026-03-31</div>
+<div class="art-item">
   <div class="art-title">1. <a href="https://www.odaily.news/zh-CN/newsflash/474699" target="_blank" rel="noopener">Bitfarms计划清仓资产负债表上全部比特币，全面转向AI基础设施</a></div>
   <div class="art-meta">Odaily星球日报</div>
   
@@ -402,15 +410,16 @@ footer{text-align:center;padding:24px 0;color:#444;font-size:.75em;border-top:1p
 
 
 <section class="funding-section">
-  <h2>💰 当周最大投融资项目</h2>
-  <div class="funding-card">
-    <div class="funding-amount">$45.0B</div>
-    <div class="funding-title"><a href="https://unchainedcrypto.com/cross-border-fx-startup-openfx-raises-94-million-hits-45-billion-in-annual-volume/" target="_blank" rel="noopener">March 31, 2026Cross-Border FX Startup OpenFX Raises $94 Million, Hits $45 Billion in Annual Volume</a></div>
-    <div class="funding-meta">Unchained</div>
-  </div>
+  <h2>💰 重大投融资项目</h2>
+  <div class="funding-card" style="margin-bottom:12px">
+  <div class="funding-amount">$45.0B</div>
+  <div class="funding-title"><a href="https://unchainedcrypto.com/cross-border-fx-startup-openfx-raises-94-million-hits-45-billion-in-annual-volume/" target="_blank" rel="noopener">March 31, 2026Cross-Border FX Startup OpenFX Raises $94 Million, Hits $45 Billion in Annual Volume</a></div>
+  <div class="funding-meta">Unchained · 2026-03-31</div>
+</div>
+
 </section>
 
-<footer>区块链内容素材库 · 智能筛选版 · 自动生成 · <a href="all.html" style="color:#58a6ff">查看全量沉淀库</a></footer>
+<footer>区块链内容沉淀库 · 全量累积版 · 自动生成</footer>
 </div>
 </body>
 </html>
