@@ -9,10 +9,12 @@
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans SC",sans-serif;
   background:#0f1117;color:#e0e0e0;line-height:1.7}
 .page-wrap{max-width:1120px;margin:0 auto;padding:24px 20px}
-header{text-align:center;padding:32px 0 24px;border-bottom:1px solid #23262f}
+header{text-align:center;padding:32px 0 24px;border-bottom:1px solid #23262f;position:relative}
 header h1{font-size:1.7em;color:#fff;font-weight:700;letter-spacing:.5px}
 header .subtitle{color:#888;font-size:.88em;margin-top:6px}
 header .gen-time{color:#555;font-size:.78em;margin-top:4px}
+.switch-classic{position:absolute;top:32px;right:0;background:#23262f;color:#58a6ff;border:1px solid #30363d;padding:6px 16px;border-radius:8px;font-size:.82em;text-decoration:none;transition:all .2s}
+.switch-classic:hover{background:#30363d;color:#79c0ff}
 .dashboard{display:grid;grid-template-columns:1fr 280px;gap:28px;margin-top:24px}
 .main-col{min-width:0}
 .sidebar{display:flex;flex-direction:column;gap:16px}
@@ -93,6 +95,7 @@ footer a{color:#58a6ff;text-decoration:none}
 @media(max-width:480px){
   .page-wrap{padding:12px}
   header h1{font-size:1.3em}
+  .switch-classic{position:static;display:block;margin:12px auto 0;width:fit-content}
   .stats-row{grid-template-columns:1fr 1fr}
   .filter-bar{gap:6px;padding:10px}
   .hero-card{flex-direction:column;gap:8px}
@@ -105,7 +108,8 @@ footer a{color:#58a6ff;text-decoration:none}
 <header>
   <h1>📚 区块链信息集合库</h1>
   <div class="subtitle">全量累积 · 每周更新 · 持续沉淀</div>
-  <div class="gen-time">最近更新：2026-04-01 17:20 · 累积 2 周数据</div>
+  <div class="gen-time">最近更新：2026-04-01 17:27 · 累积 2 周数据</div>
+  <a class="switch-classic" href="all_classic.html">🔄 切换到经典版</a>
 </header>
 
 <div class="stats-row">
