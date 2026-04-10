@@ -52,23 +52,12 @@ body {
 ══════════════════════════════════════════ */
 .cover {
   position: relative;
-  min-height: 88vh;
+  min-height: auto;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   overflow: hidden;
   background: var(--bg);
-}
-
-.cover-bg-img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-  opacity: 0.45;
-  mix-blend-mode: multiply;
 }
 
 .cover-canvas {
@@ -80,13 +69,12 @@ body {
 .cover-gradient {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(180deg,
-      rgba(248,250,252,0.15) 0%,
-      rgba(248,250,252,0.1) 40%,
-      rgba(248,250,252,0.7) 78%,
-      rgba(248,250,252,1) 100%);
-  z-index: 2;
+  background: 
+    radial-gradient(ellipse 80% 60% at 50% 30%, rgba(37,99,235,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 80% at 80% 50%, rgba(124,58,237,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 20% 70%, rgba(217,119,6,0.04) 0%, transparent 60%),
+    linear-gradient(180deg, rgba(248,250,252,0) 0%, rgba(248,250,252,0.6) 60%, rgba(248,250,252,1) 100%);
+  z-index: 1;
 }
 
 /* 节点网络动画 */
@@ -95,7 +83,7 @@ body {
   inset: 0;
   overflow: hidden;
   pointer-events: none;
-  z-index: 1;
+  z-index: 0;
 }
 
 .node-network {
@@ -107,8 +95,8 @@ body {
 
 .cover-content {
   position: relative;
-  z-index: 3;
-  padding: 60px 0 80px;
+  z-index: 2;
+  padding: 60px 0 36px;
 }
 
 .cover-badge {
@@ -791,8 +779,6 @@ ul.styled-list li::before {
      封面 Hero
 ══════════════════════════════════════════ -->
 <section class="cover" id="top">
-  <!-- 封面背景图（与蛛网融合） -->
-  <img class="cover-bg-img" src="file:///F:/VsCode/my-agents/task/回顾2025，展望2026配图/cover.png" alt="" aria-hidden="true">
   <!-- SVG 节点网络背景 -->
   <div class="bg-nodes">
     <svg width="100%" height="100%" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
@@ -883,6 +869,10 @@ ul.styled-list li::before {
     </div>
   </div>
 
+  <!-- 封面配图 -->
+  <div class="container" style="padding-bottom: 32px; position: relative; z-index: 2;">
+    <img src="file:///F:/VsCode/my-agents/task/回顾2025，展望2026配图/cover.png" alt="回顾2025，展望2026封面" style="width: 100%; height: auto; object-fit: cover; aspect-ratio: 21/8; margin: 0; border: 1px solid var(--border2); border-radius: 8px;">
+  </div>
 </section>
 
 <!-- 关键数字横幅 -->
