@@ -303,7 +303,8 @@ body {
 
 /* ── 协议生态定位图 ── */
 .protocol-map {
-  background: #0f172a;
+  background: var(--bg2);
+  border: 1px solid var(--border);
   border-radius: 12px;
   padding: 24px;
   margin: 28px 0;
@@ -312,29 +313,30 @@ body {
   gap: 12px;
 }
 .protocol-item {
-  background: #1e293b;
-  border: 1px solid #334155;
+  background: #fff;
+  border: 1px solid var(--border);
   border-radius: 8px;
   padding: 14px 16px;
 }
 .protocol-name {
   font-size: .85em;
   font-weight: 700;
-  color: #93c5fd;
+  color: var(--accent);
   margin-bottom: 4px;
   font-family: var(--font-mono);
 }
 .protocol-role {
   font-size: .78em;
-  color: #94a3b8;
+  color: var(--text3);
   line-height: 1.5;
 }
 .protocol-item.highlight-protocol {
-  border-color: #f59e0b;
-  background: #1c1a08;
+  border-color: var(--gold);
+  background: #fffbeb;
+  box-shadow: 0 2px 8px rgba(217,119,6,.1);
 }
-.protocol-item.highlight-protocol .protocol-name { color: #fbbf24; }
-.protocol-item.highlight-protocol .protocol-role { color: #d97706; }
+.protocol-item.highlight-protocol .protocol-name { color: #b45309; }
+.protocol-item.highlight-protocol .protocol-role { color: #92400e; }
 
 /* ── 信息源 ── */
 .sources-section {
@@ -440,7 +442,7 @@ footer a { color: var(--accent); text-decoration: none; }
       <span class="meta-sep">·</span>
       <span>2026年4月17日</span>
       <span class="meta-sep">·</span>
-      <span>约 1,200 字 · 阅读约 5 分钟</span>
+      <span>约 1,500 字 · 阅读约 6 分钟</span>
     </div>
   </header>
 
@@ -457,7 +459,7 @@ footer a { color: var(--accent); text-decoration: none; }
 
     <h2>一、从一条推文说起</h2>
 
-    <p>2026 年 4 月 8 日，以太坊官方 X 账号（@ethereum）发出一条转发，翻译成白话便是：ERC-8211 允许用户和 AI 代理把一套复杂的链上操作，用一个链下脚本完整表达，并内置安全保障机制。</p>
+    <p>2026 年 4 月 6 日，Biconomy 正式发布 ERC-8211 提案。两天后的 4 月 8 日，以太坊官方 X 账号（@ethereum）随即转发，翻译成白话便是：ERC-8211 允许用户和 AI 代理把一套复杂的链上操作，用一个链下脚本完整表达，并内置安全保障机制。<sup>[5]</sup></p>
 
     <p>这条推文并没有引发市场的即时狂欢，却在以太坊技术圈掀起了一场低调却深刻的讨论。一个问题悄悄浮出水面：我们真的解决了 AI 代理的"执行层困境"了吗？</p>
 
@@ -487,9 +489,21 @@ footer a { color: var(--accent); text-decoration: none; }
 
     <p>但在这套精心设计的协议矩阵中，存在一个明显的"执行层空白"——当 AI 代理制定出一套复杂的 DeFi 策略（比如先在 Uniswap 换币、再桥接到另一条链、再存入借贷协议、最后进行质押），它该如何安全、自主地在链上把这套计划一步步落地？</p>
 
-    <p>现有的批处理方案，如 ERC-4337，采用的是"静态批处理"逻辑：所有参数必须在签名时就完全确定。这就好比你在家提前写好一张购物清单，但到超市发现某种商品缺货，你的整个购物计划就必须全部取消、重新回家再写一张新清单。在 MEV 肆虐、滑点频繁的 DeFi 环境中，这种刚性设计意味着大量批次因为某一步骤的微小偏差而整体回滚，效率极低，代理的"自主性"更是无从谈起。</p>
+    <p>现有的批处理方案，如 ERC-4337，采用的是"静态批处理"逻辑：所有参数——兑换金额、滑点容忍度、目标地址——都必须在使用者签名的那一刻确定下来，之后无法变动。据 BlockTempo 报道，这在 DeFi 环境里非常脆弱：预言机报价每几秒更新一次，流动性池的深度随时在变，借贷协议的利率也在浮动。使用者在 T 时刻签名，交易可能在 T+30 秒才被打包上链，这段时间内任何一个数字跑掉，整笔批次交易就可能失败。<sup>[5]</sup></p>
 
-    <p>ERC-8211（Smart Batching，智能批处理）正是为了填补这一空白而生。该提案于 2026 年 4 月由 Biconomy 与以太坊基金会联合提出，当前处于草案（Draft）阶段，GitHub PR #1638 由 @oxshaman（Biconomy）提交，lightclient（以太坊基金会）已参与审阅。<sup>[2]</sup></p>
+    <p>对人类使用者来说，这只是「偶尔失败、重试一次」的小麻烦。但对需要全自主执行的 AI 代理来说，这是结构性障碍——你没办法让一个 AI 可靠地管理 DeFi 仓位，因为它的每一步操作都可能因参数过时而失败。</p>
+
+    <p>ERC-8211（Smart Batching，智能批处理）正是为了填补这一空白而生。该提案于 2026 年 4 月 6 日由 Biconomy 正式发布并获得以太坊基金会支持，当前处于草案（Draft）阶段，GitHub PR #1638 由 @oxshaman（Biconomy）提交，lightclient（以太坊基金会）已参与审阅。<sup>[2]</sup></p>
+
+    <div class="highlight-box">
+      <h4>📋 提案起源：以太坊基金会「Improve UX」工作坊</h4>
+      <ul>
+        <li>ERC-8211 并非凭空而来——它起源于以太坊基金会 2025 年举办的「Improve UX」工作坊，该工作坊汇集了多个 AA 生态的开发团队，目标是找出账户抽象在实际使用中最大的摩擦点</li>
+        <li>以太坊基金会的协议群组此后将「改善 UX」列为战略优先项目，ERC-8211 正是该方向的直接产物</li>
+        <li>关键采用优势：ERC-8211 是合约层的编码，<strong>完全不需要以太坊协议层硬分叉</strong>，开发者现在就可以在自己的智能合约和 AA 基础设施里实现该标准，不用等以太坊主网升级</li>
+        <li>新标准与现有 AA 框架兼容，并非推倒重来，而是在 ERC-4337 等已有基础上叠加动态能力，迁移成本相对可控</li>
+      </ul>
+    </div>
 
     <h2>三、核心突破：让执行计划"会读空气"</h2>
 
@@ -520,7 +534,11 @@ footer a { color: var(--accent); text-decoration: none; }
 
     <h3>运行时参数注入：动态感知市场状态</h3>
 
-    <p>通过引入 <code style="font-family:var(--font-mono);background:var(--bg3);padding:1px 5px;border-radius:3px;font-size:.88em">InputParam</code> 结构，ERC-8211 允许批次中的每个参数声明自己在执行时该如何获取值，而非提前冻结。打个比方：传统批处理就像是写死脚本的机器人，执行时一旦遇到市场变化便当场宕机；而 ERC-8211 的批次更像是一个懂得"看牌出牌"的策略师——它会在落子前最后一刻查看桌面上的实际情况，再决定下一步动作。</p>
+    <p>通过引入 <code style="font-family:var(--font-mono);background:var(--bg3);padding:1px 5px;border-radius:3px;font-size:.88em">InputParam</code> 结构，ERC-8211 允许批次中的每个参数声明自己在执行时该如何获取值，而非提前冻结。简单说，使用者签名时不再写死具体数字，而是写下「规则」：比如「滑点不超过 0.5%」「兑换金额等于从借贷协议实际提出的数字」「预言机报价在 X 到 Y 之间才执行」。等到交易真正被执行的瞬间，合约才去链上读取实时资料，填入实际参数，再验证是否符合约束条件，符合才执行。<sup>[5]</sup></p>
+
+    <p>Biconomy 在公告中列出的一个典型场景最能说明这个差异：从借贷协议提款 → 精确兑换收到的金额 → 存入另一个协议，全程在一笔交易里完成。关键在「精确兑换收到的金额」——在 ERC-4337 的静态模型下，你必须猜一个数字填进去；在 ERC-8211 下，这个数字在执行时会自动从上一步的结果读取。</p>
+
+    <p>打个比方：传统批处理就像是写死脚本的机器人，执行时一旦遇到市场变化便当场宕机；而 ERC-8211 的批次更像是一个懂得"看牌出牌"的策略师——它会在落子前最后一刻查看桌面上的实际情况，再决定下一步动作。</p>
 
     <h3>内联约束：把安全保障编码进意图本身</h3>
 
@@ -599,11 +617,13 @@ footer a { color: var(--accent); text-decoration: none; }
 
     <p>如果把当前 AI Agent 在 Web3 中的处境做一个形象描述：它像一位棋力超群的棋手，却被要求在比赛开始前就把整局棋的落子顺序全部写好，中途一旦对手有任何出乎意料的应对，就必须推翻重来。ERC-8211 终于给了这位棋手"边看边走"的能力。</p>
 
-    <p>可验证性、约束有界性与自主性——这三点构成了 ERC-8211 对 AI Agent 执行层的核心贡献：执行计划的声明性元数据让意图本身可被审计；约束直接编码在批次中而非外部合约，消除了额外信任假设；而动态解析机制则真正赋予代理在复杂、多变的链上环境中自主完成策略的能力。</p>
+    <p>可验证性、约束有界性与自主性——这三点构成了 ERC-8211 对 AI Agent 执行层的核心贡献：执行计划的声明性元数据让意图本身可被审计；约束直接编码在批次中而非外部合约，消除了额外信任假设；而动态解析机制则真正赋予代理在复杂、多变的链上环境中自主完成策略的能力。正如 BlockTempo 所分析的：一个管理 DeFi 仓位的 AI 代理，可以设定一套策略规则，让合约在执行瞬间根据滑点、余额、预言机价格自动决定每一步的实际参数，整个过程无需人工干预，也不会因市况微幅变动而失败。<sup>[5]</sup></p>
+
+    <p>账户抽象这些年一直被视为以太坊普及化的重要拼图：让普通使用者不用管私钥、Gas、签名流程，智能合约钱包帮你处理所有底层操作。但现有标准在自动化场景下的静态限制，一直是 AI 代理无法可靠执行复杂 DeFi 策略的根本原因之一。ERC-8211 试图填上这个缺口——如果标准被广泛采用，AI 代理将能够真正自主地执行多步 DeFi 策略，且每一步都即时响应市场状态，而不是依赖使用者不断重签或承受失败率。</p>
 
     <p>当然，ERC-8211 目前仍处于草案阶段，距离最终标准化还有相当距离。其跨链谓词的信任假设、Storage 共享合约的安全边界、以及在极端 MEV 场景下的鲁棒性，都是尚待社区验证的重要问题。GitHub PR 的审阅讨论中，OpenZeppelin 工程师 ernestognw 已就有符号整数比较、OR 逻辑组合等边界情况提出质疑，项目方也在积极响应并迭代修订。<sup>[2]</sup></p>
 
-    <p>但作为一个设计方向，ERC-8211 已经清晰地指出了以太坊 AI 代理生态的下一个基础设施锚点：不是更聪明的模型，而是更可靠的执行层。</p>
+    <p>但作为一个设计方向，ERC-8211 已经清晰地指出了以太坊 AI 代理生态的下一个基础设施锚点：不是更聪明的模型，而是更可靠的执行层。标准能否落地，最终还是看开发者社群的采用速度——而「不需要硬分叉、即刻可用」这一特点，或许正是它最大的加速器。</p>
 
     <!-- 信息源 -->
     <div class="sources-section">
@@ -642,6 +662,15 @@ footer a { color: var(--accent); text-decoration: none; }
             Biconomy 技术博客《Verifiable EVM Scripting: From Transactions to Composable, Multi-Chain Programs》（2025年6月25日）<br>
             <a href="https://blog.biconomy.io/eip-7702-from-transactions-to-composable-multi-chain-programs-verfiable-scripting-on-the-evm/" target="_blank" rel="noopener">
               https://blog.biconomy.io/eip-7702-from-transactions-to-composable-multi-chain-programs-verfiable-scripting-on-the-evm/
+            </a>
+          </div>
+        </li>
+        <li>
+          <div class="source-num">5</div>
+          <div class="source-content">
+            動區 BlockTempo / Gate《以太坊基金会携手 Biconomy 推出 ERC-8211：AI 代理可在单笔交易中完成多个 DeFi 合约交互》（2026年4月9日）<br>
+            <a href="https://www.gate.com/zh/news/detail/the-ethereum-foundation-teamed-up-with-biconomy-to-launch-erc-8211-ai-20175316" target="_blank" rel="noopener">
+              https://www.gate.com/zh/news/detail/the-ethereum-foundation-teamed-up-with-biconomy-to-launch-erc-8211-ai-20175316
             </a>
           </div>
         </li>
