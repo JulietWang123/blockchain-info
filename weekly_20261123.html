@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>区块链最新资讯 · 2026-11-23</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans SC",sans-serif;
+  background:#0f1117;color:#e0e0e0;line-height:1.7}
+
+/* ── 布局 ── */
+.page-wrap{max-width:1120px;margin:0 auto;padding:24px 20px}
+header{text-align:center;padding:32px 0 24px;border-bottom:1px solid #23262f;position:relative}
+header h1{font-size:1.7em;color:#fff;font-weight:700;letter-spacing:.5px}
+header .subtitle{color:#888;font-size:.88em;margin-top:6px}
+header .gen-time{color:#555;font-size:.78em;margin-top:4px}
+.theme-toggle{position:absolute;top:32px;right:0;background:#23262f;color:#58a6ff;border:1px solid #30363d;padding:6px 16px;border-radius:8px;font-size:.82em;cursor:pointer;transition:all .2s;font-family:inherit}
+.theme-toggle:hover{background:#30363d;color:#79c0ff}
+.dashboard{display:grid;grid-template-columns:1fr 280px;gap:28px;margin-top:24px}
+.main-col{min-width:0}
+.sidebar{display:flex;flex-direction:column;gap:16px}
+
+/* ── 统计指标卡 ── */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+.stat-card{background:#161926;border:1px solid #23262f;border-radius:10px;padding:14px 12px;text-align:center}
+.stat-card .num{font-size:1.6em;color:#58a6ff;font-weight:700}
+.stat-card .label{font-size:.72em;color:#666;margin-top:2px}
+
+/* ── 编辑精选 · 头条大卡 ── */
+.hero-section{margin-bottom:28px}
+.hero-section h2{font-size:1.15em;color:#f1c40f;margin-bottom:16px}
+.hero-card{background:linear-gradient(135deg,#1a1d2e,#141722);border:1px solid #2a2d3e;
+  border-radius:10px;padding:16px 18px;margin-bottom:10px;display:flex;gap:14px;
+  transition:border-color .2s}
+.hero-card:hover{border-color:#f1c40f44}
+.hero-rank{min-width:32px;height:32px;background:#f1c40f;color:#111;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.9em;margin-top:2px}
+.hero-body{flex:1;min-width:0}
+.hero-title a{color:#f0f0f0;text-decoration:none;font-weight:600;font-size:1em;line-height:1.5}
+.hero-title a:hover{color:#f1c40f}
+.hero-summary{font-size:.82em;color:#888;margin-top:6px;line-height:1.6;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.hero-meta{font-size:.76em;color:#777;margin-top:6px}
+.rest-picks{background:#161926;border:1px solid #23262f;border-radius:10px;padding:14px 16px}
+.pick-item{display:flex;align-items:flex-start;padding:8px 0;
+  border-bottom:1px solid rgba(255,255,255,.04)}
+.pick-item:last-child{border-bottom:none}
+.pick-num{min-width:24px;height:24px;background:#f1c40f33;color:#f1c40f;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.78em;margin-top:2px}
+.pick-content{margin-left:10px;flex:1}
+.pick-title a{color:#c9d1d9;text-decoration:none;font-weight:500;font-size:.9em}
+.pick-title a:hover{color:#f1c40f}
+.pick-meta{font-size:.74em;color:#888;margin-top:2px}
+
+/* ── 筛选栏 ── */
+.filter-bar{margin-bottom:20px;padding:14px 16px;background:#161926;border:1px solid #23262f;border-radius:10px}
+.filter-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.filter-row + .filter-row{margin-top:10px;padding-top:10px;border-top:1px solid #23262f}
+.filter-label{font-size:.72em;color:#555;margin-right:2px;white-space:nowrap}
+.filter-sep{width:1px;height:16px;background:#2a2d3e;margin:0 4px;flex-shrink:0}
+.filter-btn{background:#1e2130;border:1px solid #2a2d3e;color:#999;padding:5px 14px;
+  border-radius:20px;font-size:.8em;cursor:pointer;transition:all .2s;font-family:inherit}
+.filter-btn:hover{border-color:#58a6ff;color:#c9d1d9}
+.filter-btn.active{background:var(--btn-color,#58a6ff);border-color:var(--btn-color,#58a6ff);
+  color:#fff;font-weight:600}
+.tag-btn{padding:4px 11px;font-size:.76em}
+.art-item.tag-hidden{display:none}
+
+/* ── 分类标签 ── */
+.cat-tag{display:inline-block;padding:1px 8px;border-radius:4px;color:#fff;font-size:.72em;
+  margin-right:6px;vertical-align:middle}
+.art-tag{display:inline-block;padding:1px 6px;border-radius:3px;font-size:.7em;margin-left:4px;
+  background:#2a2d3e;color:#8b949e;border:1px solid #363b4e}
+
+/* ── 分类区块 ── */
+.category-section{margin:0 0 24px;transition:opacity .3s}
+.category-section.hidden{display:none}
+.category-section h2{font-size:1.1em;color:#fff;display:flex;align-items:center;gap:8px}
+.cat-icon{font-size:1.15em}
+.cat-count{background:#23262f;color:#888;font-size:.7em;padding:2px 8px;border-radius:10px}
+.cat-border{height:2px;margin:8px 0 14px;border-top:2px solid;opacity:.35}
+.art-item{padding:10px 0;border-bottom:1px solid #1e2130}
+.art-item:last-child{border-bottom:none}
+.art-title{font-size:.92em}
+.art-title a{color:#c9d1d9;text-decoration:none}
+.art-title a:hover{color:#58a6ff}
+.art-meta{font-size:.74em;color:#666;margin-top:3px}
+.art-summary{font-size:.8em;color:#888;margin-top:6px;padding:8px 12px;
+  background:#131620;border-left:3px solid #2a2d3e;border-radius:4px}
+
+/* ── 侧边栏 ── */
+.sidebar-card{background:#161926;border:1px solid #23262f;border-radius:10px;padding:16px}
+.sidebar-title{font-size:.88em;color:#fff;font-weight:600;margin-bottom:12px}
+.funding-card .funding-amount{font-size:1.8em;color:#2ecc71;font-weight:800;text-align:center;margin:4px 0}
+.funding-card .funding-detail{font-size:.85em;margin-top:4px}
+.funding-card .funding-detail a{color:#c9d1d9;text-decoration:none}
+.funding-card .funding-detail a:hover{color:#2ecc71}
+.funding-card .funding-meta{color:#666;font-size:.76em;margin-top:4px;text-align:center}
+.cat-nav-item{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;
+  color:#c9d1d9;text-decoration:none;font-size:.84em;border-radius:6px;transition:background .15s;cursor:pointer}
+.cat-nav-item:hover{background:#1e2130}
+.cat-nav-item span{color:#666;font-size:.85em}
+
+/* ── 页脚 ── */
+footer{text-align:center;padding:24px 0;color:#444;font-size:.75em;border-top:1px solid #1e2130;margin-top:32px}
+footer a{color:#58a6ff;text-decoration:none}
+
+/* ── 浅色主题 ── */
+body.light{background:#f5f6fa;color:#2d3436}
+body.light header{border-bottom-color:#e0e0e0}
+body.light header h1{color:#1a1a2e}
+body.light header .subtitle{color:#636e72}
+body.light header .gen-time{color:#999}
+body.light .theme-toggle{background:#eef2f7;color:#2d6cdf;border-color:#d0d7de}
+body.light .theme-toggle:hover{background:#dde4ed;color:#1a56b8}
+body.light .stat-card{background:#fff;border-color:#e0e0e0}
+body.light .stat-card .num{color:#2d6cdf}
+body.light .stat-card .label{color:#999}
+body.light .hero-section h2{color:#e67e22}
+body.light .hero-card{background:linear-gradient(135deg,#fff,#fafbfc);border-color:#e0e0e0}
+body.light .hero-card:hover{border-color:#e67e2244}
+body.light .hero-title a{color:#2d3436}
+body.light .hero-title a:hover{color:#e67e22}
+body.light .hero-summary{color:#636e72}
+body.light .hero-meta{color:#999}
+body.light .rest-picks{background:#fff;border-color:#e0e0e0}
+body.light .pick-item{border-bottom-color:rgba(0,0,0,.06)}
+body.light .pick-title a{color:#2d3436}
+body.light .pick-title a:hover{color:#e67e22}
+body.light .pick-meta{color:#999}
+body.light .filter-bar{background:#fff;border-color:#e0e0e0}
+body.light .filter-btn{background:#f0f2f5;border-color:#d0d7de;color:#666}
+body.light .filter-btn:hover{border-color:#2d6cdf;color:#2d3436}
+body.light .art-tag{background:#eef2f7;color:#636e72;border-color:#d0d7de}
+body.light .category-section h2{color:#1a1a2e}
+body.light .cat-count{background:#eef2f7;color:#636e72}
+body.light .art-item{border-bottom-color:#eee}
+body.light .art-title a{color:#2d3436}
+body.light .art-title a:hover{color:#2d6cdf}
+body.light .art-meta{color:#999}
+body.light .art-summary{background:#f8f9fa;color:#636e72;border-left-color:#d0d7de}
+body.light .sidebar-card{background:#fff;border-color:#e0e0e0}
+body.light .sidebar-title{color:#1a1a2e}
+body.light .funding-card .funding-detail a{color:#2d3436}
+body.light .funding-card .funding-meta{color:#999}
+body.light .cat-nav-item{color:#2d3436}
+body.light .cat-nav-item:hover{background:#f0f2f5}
+body.light .cat-nav-item span{color:#999}
+body.light footer{color:#999;border-top-color:#e0e0e0}
+body.light footer a{color:#2d6cdf}
+
+/* ── 响应式 ── */
+@media(max-width:860px){
+  .dashboard{grid-template-columns:1fr;}
+  .sidebar{flex-direction:row;flex-wrap:wrap;}
+  .sidebar-card{flex:1;min-width:200px;}
+  .stats-row{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+  .page-wrap{padding:12px}
+  header h1{font-size:1.3em}
+  .theme-toggle{position:static;display:block;margin:12px auto 0;width:fit-content}
+  .stats-row{grid-template-columns:1fr 1fr}
+  .filter-bar{gap:6px;padding:10px}
+  .hero-card{flex-direction:column;gap:8px}
+  .sidebar{flex-direction:column}
+}
+</style>
+</head>
+<body>
+<div class="page-wrap">
+<header>
+  <h1>📦 区块链最新资讯</h1>
+  <div class="subtitle">政策法规 · 技术解读 · 市场动态 · 深度报告</div>
+  <div class="gen-time">生成时间：2026-11-23 00:02 · 数据范围：最近 7 天</div>
+  <button class="theme-toggle" id="theme-toggle">☀️ 浅色</button>
+</header>
+
+<div class="stats-row">
+  <div class="stat-card"><div class="num">51</div><div class="label">精选条目</div></div>
+  <div class="stat-card"><div class="num">1890</div><div class="label">原始抓取</div></div>
+  <div class="stat-card"><div class="num">1839</div><div class="label">过滤噪声</div></div>
+  <div class="stat-card"><div class="num">10</div><div class="label">编辑精选</div></div>
+</div>
+
+<section class="hero-section">
+  <h2>⭐ 编辑精选（本周最值得关注）</h2>
+  <div class="hero-card">
+  <div class="hero-rank">1</div>
+  <div class="hero-body">
+    <div class="hero-title"><a href="https://www.panewslab.com/zh/articles/01a1fdb1-3167-7571-a1a6-e1b322ef7641" target="_blank" rel="noopener">CZ在PIVOT专访中回顾从东京程序员到创立币安的历程，谈及日本加密税改、日元稳定币与RWA，并回应美国案件。他表示离开币安后专注投资与免费教育项目Giggle Academy，认为AI Agent将带来高频小额支付需求，Crypto有望成为AI原生经济的支付基础设施。</a></div>
+    
+    <div class="hero-meta"><span class="cat-tag" style="background:#e74c3c">政策法规</span> PANews · 2026-11-21 <span class="art-tag">稳定币</span><span class="art-tag">AI</span><span class="art-tag">美国</span><span class="art-tag">日本</span></div>
+  </div>
+</div>
+<div class="hero-card">
+  <div class="hero-rank">2</div>
+  <div class="hero-body">
+    <div class="hero-title"><a href="https://www.panewslab.com/zh/articles/01a1f30b-0f9f-7333-a3ee-17f028d50287" target="_blank" rel="noopener">赵长鹏：Anthropic上市首日将登陆BNB Chain链上代币化交易；汇丰将其稳定币RedCoin用途拓展至财富管理，用于认购代币化基金；比特币现货 ETF 昨日总净流出 3.06 亿美元，十二支 ETF 无一净流入</a></div>
+    
+    <div class="hero-meta"><span class="cat-tag" style="background:#e74c3c">政策法规</span> PANews · 2026-11-19 <span class="art-tag">稳定币</span></div>
+  </div>
+</div>
+<div class="hero-card">
+  <div class="hero-rank">3</div>
+  <div class="hero-body">
+    <div class="hero-title"><a href="https://www.odaily.news/zh-CN/newsflash/537416" target="_blank" rel="noopener">Garrett认领的地址向币安存入6500万枚USDT，链上仍有1.2亿美元稳定币</a></div>
+    
+    <div class="hero-meta"><span class="cat-tag" style="background:#e74c3c">政策法规</span> Odaily星球日报 · 2026-11-21 <span class="art-tag">稳定币</span></div>
+  </div>
+</div>
+<div class="hero-card">
+  <div class="hero-rank">4</div>
+  <div class="hero-body">
+    <div class="hero-title"><a href="https://www.techflowpost.com/newsletter/145996" target="_blank" rel="noopener">稳定币总市值一周缩水约 45.6 亿美元，USDT 与 USDC 双双减少</a></div>
+    
+    <div class="hero-meta"><span class="cat-tag" style="background:#e74c3c">政策法规</span> 深潮TechFlow · 2026-11-20 <span class="art-tag">稳定币</span></div>
+  </div>
+</div>
+<div class="hero-card">
+  <div class="hero-rank">5</div>
+  <div class="hero-body">
+    <div class="hero-title"><a href="https://www.panewslab.com/zh/articles/01a1f86e-a27e-7751-88f5-1807a36007f8" target="_blank" rel="noopener">本周RWA链上总市值414.2亿美元，环比降2.47%，持有者增至585.99万；稳定币总市值2738.7亿美元，月转账量降59.01%。景顺在以太坊上线代币化稳定币储备基金，Polkadot社区以97%支持率通过dotUSD新战略。</a></div>
+    
+    <div class="hero-meta"><span class="cat-tag" style="background:#e74c3c">政策法规</span> PANews · 2026-11-20 <span class="art-tag">稳定币</span></div>
+  </div>
+</div>
+<div class="hero-card">
+  <div class="hero-rank">6</div>
+  <div class="hero-body">
+    <div class="hero-title"><a href="https://www.theblockbeats.info/flash/378446" target="_blank" rel="noopener">Tether过去20天销毁80亿枚USDT，稳定币总市值自5月高点缩水232.5亿美元</a></div>
+    
+    <div class="hero-meta"><span class="cat-tag" style="background:#e74c3c">政策法规</span> 律动BlockBeats · 2026-11-20 <span class="art-tag">稳定币</span></div>
+  </div>
+</div>
+<div class="hero-card">
+  <div class="hero-rank">7</div>
+  <div class="hero-body">
+    <div class="hero-title"><a href="https://www.panewslab.com/zh/articles/01a1f3a2-15d1-76c7-9810-1a1ddca86219" target="_blank" rel="noopener">Inca Digital调查：Sky稳定币系统涉5.18亿美元非法关联交易</a></div>
+    
+    <div class="hero-meta"><span class="cat-tag" style="background:#e74c3c">政策法规</span> PANews · 2026-11-19 <span class="art-tag">稳定币</span></div>
+  </div>
+</div>
+<div class="hero-card">
+  <div class="hero-rank">8</div>
+  <div class="hero-body">
+    <div class="hero-title"><a href="https://www.panewslab.com/zh/articles/01a1f380-0db7-7605-ba76-57a6fb52f668" target="_blank" rel="noopener">Chainalysis报告显示，东欧加密交易规模同比下滑7.9%，为全球最弱区域，但1万美元以下散户转账占比升至全球第一，年流入超110亿美元；加密ATM与P2P现金类服务逆势增长1.5%。乌克兰为周边16国稳定币P2P首要目的地，波兰占区域38.5%的加密ATM。</a></div>
+    
+    <div class="hero-meta"><span class="cat-tag" style="background:#e74c3c">政策法规</span> PANews · 2026-11-19 <span class="art-tag">稳定币</span></div>
+  </div>
+</div>
+<div class="hero-card">
+  <div class="hero-rank">9</div>
+  <div class="hero-body">
+    <div class="hero-title"><a href="https://www.odaily.news/zh-CN/newsflash/536781" target="_blank" rel="noopener">Sui宣布Hashi主网上线，支持BTC作为抵押品借入稳定币</a></div>
+    
+    <div class="hero-meta"><span class="cat-tag" style="background:#9b59b6">技术解读</span> Odaily星球日报 · 2026-11-20 <span class="art-tag">稳定币</span></div>
+  </div>
+</div>
+<div class="hero-card">
+  <div class="hero-rank">10</div>
+  <div class="hero-body">
+    <div class="hero-title"><a href="https://research.glassnode.com/book-churn/" target="_blank" rel="noopener">Book Churn: How Fast the Order Book Is Being Rewritten</a></div>
+    <div class="hero-summary">Book Churn counts how often the price levels of an order book are revised. We define the metric, show how much of it depth and spread already capture, and test it as a volatility indicator on Binance BTCUSDT and ETHUSDT perpetuals.</div>
+    <div class="hero-meta"><span class="cat-tag" style="background:#3498db">行业报告</span> Glassnode Insights · 2026-11-18 <span class="art-tag">稳定币</span></div>
+  </div>
+</div>
+
+</section>
+
+<div class="dashboard">
+<div class="main-col">
+  <div class="filter-bar">
+    <div class="filter-row">
+<button class="filter-btn active" data-filter="all">全部</button>
+<button class="filter-btn" data-filter="政策法规" style="--btn-color:#e74c3c">📜 政策法规</button>
+<button class="filter-btn" data-filter="技术解读" style="--btn-color:#9b59b6">⚙️ 技术解读</button>
+<button class="filter-btn" data-filter="深度文章" style="--btn-color:#2ecc71">📝 深度文章</button>
+<button class="filter-btn" data-filter="行业报告" style="--btn-color:#3498db">📊 行业报告</button>
+<button class="filter-btn" data-filter="市场动态" style="--btn-color:#f39c12">📡 市场动态</button>
+</div>
+<div class="filter-row">
+<span class="filter-label">🏷️ 主题</span>
+<button class="filter-btn tag-btn" data-tag="稳定币" style="--btn-color:#e67e22">稳定币</button>
+<button class="filter-btn tag-btn" data-tag="AI" style="--btn-color:#6c5ce7">AI</button>
+<span class="filter-sep"></span>
+<span class="filter-label">🌍 地区</span>
+<button class="filter-btn tag-btn" data-tag="美国" style="--btn-color:#3d5a80">美国</button>
+<button class="filter-btn tag-btn" data-tag="日本" style="--btn-color:#bc4749">日本</button>
+<button class="filter-btn tag-btn" data-tag="欧洲" style="--btn-color:#457b9d">欧洲</button>
+</div>
+  </div>
+  <section class="category-section" data-cat="政策法规">
+  <h2><span class="cat-icon">📜</span> 政策法规 <span class="cat-count">15</span></h2>
+  <div class="cat-border" style="border-color:#e74c3c"></div>
+  <div class="art-item" data-tags="稳定币">
+  <div class="art-title">1. <a href="https://www.theblockbeats.info/flash/378571" target="_blank" rel="noopener">Garrett Jin向Binance存入6500万美元稳定币并表态：进场时机已至</a></div>
+  <div class="art-meta">律动BlockBeats · 2026-11-22 <span class="art-tag">稳定币</span></div>
+  
+</div>
+<div class="art-item" data-tags="稳定币">
+  <div class="art-title">2. <a href="https://www.odaily.news/zh-CN/newsflash/537416" target="_blank" rel="noopener">Garrett认领的地址向币安存入6500万枚USDT，链上仍有1.2亿美元稳定币</a></div>
+  <div class="art-meta">Odaily星球日报 · 2026-11-21 <span class="art-tag">稳定币</span></div>
+  
+</div>
+<div class="art-item" data-tags="稳定币,AI,美国,日本">
+  <div class="art-title">3. <a href="https://www.panewslab.com/zh/articles/01a1fdb1-3167-7571-a1a6-e1b322ef7641" target="_blank" rel="noopener">CZ在PIVOT专访中回顾从东京程序员到创立币安的历程，谈及日本加密税改、日元稳定币与RWA，并回应美国案件。他表示离开币安后专注投资与免费教育项目Giggle Academy，认为AI Agent将带来高频小额支付需求，Crypto有望成为AI原生经济的支付基础设施。</a></div>
+  <div class="art-meta">PANews · 2026-11-21 <span class="art-tag">稳定币</span><span class="art-tag">AI</span><span class="art-tag">美国</span><span class="art-tag">日本</span></div>
+  
+</div>
+<div class="art-item" data-tags="稳定币">
+  <div class="art-title">4. <a href="https://www.techflowpost.com/newsletter/145996" target="_blank" rel="noopener">稳定币总市值一周缩水约 45.6 亿美元，USDT 与 USDC 双双减少</a></div>
+  <div class="art-meta">深潮TechFlow · 2026-11-20 <span class="art-tag">稳定币</span></div>
+  
+</div>
+<div class="art-item" data-tags="稳定币">
+  <div class="art-title">5. <a href="https://www.panewslab.com/zh/articles/01a1f86e-a27e-7751-88f5-1807a36007f8" target="_blank" rel="noopener">本周RWA链上总市值414.2亿美元，环比降2.47%，持有者增至585.99万；稳定币总市值2738.7亿美元，月转账量降59.01%。景顺在以太坊上线代币化稳定币储备基金，Polkadot社区以97%支持率通过dotUSD新战略。</a></div>
+  <div class="art-meta">PANews · 2026-11-20 <span class="art-tag">稳定币</span></div>
+  
+</div>
+<div class="art-item" data-tags="稳定币">
+  <div class="art-title">6. <a href="https://www.panewslab.com/zh/articles/01a1f8ec-bfc6-7583-8d02-53857929f918" target="_blank" rel="noopener">波卡通过新战略：转向用户增长，将推出 Polkadot App 和 DOT 支持的稳定币</a></div>
+  <div class="art-meta">PANews · 2026-11-20 <span class="art-tag">稳定币</span></div>
+  
+</div>
+<div class="art-item" data-tags="稳定币">
+  <div class="art-title">7. <a href="https://www.theblockbeats.info/flash/378446" target="_blank" rel="noopener">Tether过去20天销毁80亿枚USDT，稳定币总市值自5月高点缩水232.5亿美元</a></div>
+  <div class="art-meta">律动BlockBeats · 2026-11-20 <span class="art-tag">稳定币</span></div>
+  
+</div>
+<div class="art-item" data-tags="稳定币">
+  <div class="art-title">8. <a href="https://www.theblockbeats.info/flash/378204" target="_blank" rel="noopener">稳定币总市值自5月高点缩水232.5亿美元，降至2881亿美元</a></div>
+  <div class="art-meta">律动BlockBeats · 2026-11-20 <span class="art-tag">稳定币</span></div>
+  
+</div>
+<div class="art-item" data-tags="稳定币,AI">
+  <div class="art-title">9. <a href="https://www.techflowpost.com/article/35554" target="_blank" rel="noopener">2026.11.20一券多链：Anthropic 上市，照出代币化资产「碎片化」困局Anthropic 上市引发多链代币化争夺，流动性割裂、估值偏差与清算风险浮出水面。稳定币USDe回购利率人工智能2026.11.20稳定币USDe回购利率人工智能</a></div>
+  <div class="art-meta">深潮TechFlow · 2026-11-20 <span class="art-tag">稳定币</span><span class="art-tag">AI</span></div>
+  
+</div>
+<div class="art-item" data-tags="稳定币">
+  <div class="art-title">10. <a href="https://www.panewslab.com/zh/articles/01a1f30b-0f9f-7333-a3ee-17f028d50287" target="_blank" rel="noopener">赵长鹏：Anthropic上市首日将登陆BNB Chain链上代币化交易；汇丰将其稳定币RedCoin用途拓展至财富管理，用于认购代币化基金；比特币现货 ETF 昨日总净流出 3.06 亿美元，十二支 ETF 无一净流入</a></div>
+  <div class="art-meta">PANews · 2026-11-19 <span class="art-tag">稳定币</span></div>
+  
+</div>
+<div class="art-item" data-tags="稳定币">
+  <div class="art-title">11. <a href="https://www.panewslab.com/zh/articles/01a1f3a2-15d1-76c7-9810-1a1ddca86219" target="_blank" rel="noopener">Inca Digital调查：Sky稳定币系统涉5.18亿美元非法关联交易</a></div>
+  <div class="art-meta">PANews · 2026-11-19 <span class="art-tag">稳定币</span></div>
+  
+</div>
+<div class="art-item" data-tags="稳定币">
+  <div class="art-title">12. <a href="https://www.panewslab.com/zh/articles/01a1f380-0db7-7605-ba76-57a6fb52f668" target="_blank" rel="noopener">Chainalysis报告显示，东欧加密交易规模同比下滑7.9%，为全球最弱区域，但1万美元以下散户转账占比升至全球第一，年流入超110亿美元；加密ATM与P2P现金类服务逆势增长1.5%。乌克兰为周边16国稳定币P2P首要目的地，波兰占区域38.5%的加密ATM。</a></div>
+  <div class="art-meta">PANews · 2026-11-19 <span class="art-tag">稳定币</span></div>
+  
+</div>
+<div class="art-item" data-tags="稳定币,AI">
+  <div class="art-title">13. <a href="https://www.odaily.news/zh-CN/post/5214003" target="_blank" rel="noopener">ChatGPT Wallet 联手 Visa 们：Agent 经济，还需要稳定币么？</a></div>
+  <div class="art-meta">Odaily星球日报 · 2026-11-19 <span class="art-tag">稳定币</span><span class="art-tag">AI</span></div>
+  
+</div>
+<div class="art-item" data-tags="稳定币">
+  <div class="art-title">14. <a href="https://www.techflowpost.com/article/35484" target="_blank" rel="noopener">2026.11.18难民跨境、加密 ATM 与税改浪潮：什么在驱动东欧加密经济？大额交易退潮、散户占比领跑全球，战火与政策变局下的东欧链上生存图景。稳定币宏观2026.11.18稳定币宏观</a></div>
+  <div class="art-meta">深潮TechFlow · 2026-11-18 <span class="art-tag">稳定币</span></div>
+  
+</div>
+<div class="art-item" data-tags="稳定币,AI">
+  <div class="art-title">15. <a href="https://www.techflowpost.com/article/35489" target="_blank" rel="noopener">2026.11.18企业若想让 AI Agent 真正上岗，需要的远不止「加密支付」a16z Frontier GTM 负责人深入企业一线：相较于稳定币支付，可验证性、委托授权与权限审计才是 Agent 规模化落地的核心瓶颈。稳定币a16z加密支付人工智能AI Agent2026.11.18稳定币a16z加密支付人工智能AI Agent</a></div>
+  <div class="art-meta">深潮TechFlow · 2026-11-18 <span class="art-tag">稳定币</span><span class="art-tag">AI</span></div>
+  
+</div>
+
+</section>
+<section class="category-section" data-cat="技术解读">
+  <h2><span class="cat-icon">⚙️</span> 技术解读 <span class="cat-count">9</span></h2>
+  <div class="cat-border" style="border-color:#9b59b6"></div>
+  <div class="art-item" data-tags="">
+  <div class="art-title">1. <a href="https://www.odaily.news/zh-CN/post/5214039" target="_blank" rel="noopener">当账户「可编程」：从 EIP-7702、ERC-4337 到 Native AA 的克制与取舍</a></div>
+  <div class="art-meta">Odaily星球日报 · 2026-11-21 </div>
+  
+</div>
+<div class="art-item" data-tags="">
+  <div class="art-title">2. <a href="https://www.techflowpost.com/article/35400" target="_blank" rel="noopener">2026.11.16Vitalik 最新文章：为什么 EIP-8037 是以太坊安全扩容的必由之路？以太坊短期扩容必须解耦执行与状态增长，EIP-8037 通过状态 Gas 蓄水池机制重新为状态创建定价，在保障去中心化与节点安全的前提下为 Gas 上限大幅提升铺平道路。以太坊安全扩容GasEIP定价2026.11.16以太坊安全扩容GasEIP定价</a></div>
+  <div class="art-meta">深潮TechFlow · 2026-11-16 </div>
+  
+</div>
+<div class="art-item" data-tags="">
+  <div class="art-title">3. <a href="https://www.panewslab.com/zh/articles/01a1e4a4-056d-7631-912a-2902c10c5aa6" target="_blank" rel="noopener">Vitalik撰文力挺Glamsterdam升级核心提案EIP-8037：通过状态Gas蓄水池大幅提高新状态创建成本，首次将执行扩容与状态膨胀解耦，并提醒开发者永远不要假设Gas规则不变。</a></div>
+  <div class="art-meta">PANews · 2026-11-16 </div>
+  
+</div>
+<div class="art-item" data-tags="">
+  <div class="art-title">4. <a href="https://www.odaily.news/zh-CN/newsflash/534987" target="_blank" rel="noopener">Vitalik：EIP-8037是以太坊安全扩容的现实选择，开发者不应假设Gas机制永远不变</a></div>
+  <div class="art-meta">Odaily星球日报 · 2026-11-16 </div>
+  
+</div>
+<div class="art-item" data-tags="">
+  <div class="art-title">5. <a href="https://www.odaily.news/zh-CN/post/5213943" target="_blank" rel="noopener">Vitalik新作：以太坊扩容的唯一出路，为何只能是EIP-8037？</a></div>
+  <div class="art-meta">Odaily星球日报 · 2026-11-16 </div>
+  
+</div>
+<div class="art-item" data-tags="">
+  <div class="art-title">6. <a href="https://www.odaily.news/zh-CN/post/5214026" target="_blank" rel="noopener">Hashi主网正式上线：20多家合作伙伴推动比特币金融在Sui上规模化应用</a></div>
+  <div class="art-meta">Odaily星球日报 · 2026-11-20 </div>
+  
+</div>
+<div class="art-item" data-tags="稳定币">
+  <div class="art-title">7. <a href="https://www.odaily.news/zh-CN/newsflash/536781" target="_blank" rel="noopener">Sui宣布Hashi主网上线，支持BTC作为抵押品借入稳定币</a></div>
+  <div class="art-meta">Odaily星球日报 · 2026-11-20 <span class="art-tag">稳定币</span></div>
+  
+</div>
+<div class="art-item" data-tags="欧洲">
+  <div class="art-title">8. <a href="https://www.panewslab.com/zh/articles/01a1f6bc-f384-76f2-a7a7-ae27a0210cfb" target="_blank" rel="noopener">EigenLayer推出去中心化算力网络Darkbloom与科研平台Yukon</a></div>
+  <div class="art-meta">PANews · 2026-11-20 <span class="art-tag">欧洲</span></div>
+  
+</div>
+<div class="art-item" data-tags="">
+  <div class="art-title">9. <a href="https://www.theblockbeats.info/flash/377603" target="_blank" rel="noopener">Lighter事件更新：协议及智能合约未受影响，将于日内完成合约升级并尽量恢复提现</a></div>
+  <div class="art-meta">律动BlockBeats · 2026-11-16 </div>
+  
+</div>
+
+</section>
+<section class="category-section" data-cat="深度文章">
+  <h2><span class="cat-icon">📝</span> 深度文章 <span class="cat-count">2</span></h2>
+  <div class="cat-border" style="border-color:#2ecc71"></div>
+  <div class="art-item" data-tags="">
+  <div class="art-title">1. <a href="https://www.bankless.com/read/news/aave-takes-its-savings-app-to-android-and-tron" target="_blank" rel="noopener">1dAave Takes Its Savings App to Android and TRON</a></div>
+  <div class="art-meta">Bankless · 2026-11-18 </div>
+  
+</div>
+<div class="art-item" data-tags="">
+  <div class="art-title">2. <a href="https://www.bankless.com/read/news/glamsterdams-gas-fight-heads-to-thursday" target="_blank" rel="noopener">22hGlamsterdam's Gas Debate Heads to Thursday</a></div>
+  <div class="art-meta">Bankless · 2026-11-18 </div>
+  
+</div>
+
+</section>
+<section class="category-section" data-cat="行业报告">
+  <h2><span class="cat-icon">📊</span> 行业报告 <span class="cat-count">4</span></h2>
+  <div class="cat-border" style="border-color:#3498db"></div>
+  <div class="art-item" data-tags="稳定币">
+  <div class="art-title">1. <a href="https://research.glassnode.com/book-churn/" target="_blank" rel="noopener">Book Churn: How Fast the Order Book Is Being Rewritten</a></div>
+  <div class="art-meta">Glassnode Insights · 2026-11-18 <span class="art-tag">稳定币</span></div>
+  <div class="art-summary">Book Churn counts how often the price levels of an order book are revised. We define the metric, show how much of it depth and spread already capture, and test it as a volatility indicator on Binance BTCUSDT and ETHUSDT perpetuals.</div>
+</div>
+<div class="art-item" data-tags="">
+  <div class="art-title">2. <a href="https://research.glassnode.com/the-week-onchain-week-46-2026/" target="_blank" rel="noopener">Capitulation Meets Support</a></div>
+  <div class="art-meta">Glassnode Insights · 2026-11-17 </div>
+  <div class="art-summary">Bitcoin's crash pushed realized losses to capitulation levels and flushed leverage. Price holds the block of recent buyers between $62K and $66K, with the largest bids since August at $60K and below. Demand for Bitcoin stays thin, while tokenized real-world assets keep spreading across crypto.</div>
+</div>
+<div class="art-item" data-tags="">
+  <div class="art-title">3. <a href="https://nexo.com/en-us" target="_blank" rel="noopener">Commissioned by Nexo</a></div>
+  <div class="art-meta">The Block Research · 2026-11-18 </div>
+  
+</div>
+<div class="art-item" data-tags="">
+  <div class="art-title">4. <a href="https://www.theblock.co/research/reports/always-on-dollar-stablecoins-money-economy-doesnt-close-418340" target="_blank" rel="noopener">Read full article</a></div>
+  <div class="art-meta">The Block Research · 2026-11-16 </div>
+  
+</div>
+
+</section>
+<section class="category-section" data-cat="市场动态">
+  <h2><span class="cat-icon">📡</span> 市场动态 <span class="cat-count">20</span></h2>
+  <div class="cat-border" style="border-color:#f39c12"></div>
+  <div class="art-item" data-tags="稳定币">
+  <div class="art-title">1. <a href="https://www.techflowpost.com/article/35580" target="_blank" rel="noopener">2026.11.21一周四张支票：印钞机降速，Tether 开始投资渠道USDT 规模触顶与利润腰斩下，Tether 密集入股全球金融 App 争夺底层清算管道。原创稳定币支付TetherUSDT2026.11.21原创稳定币支付TetherUSDT</a></div>
+  <div class="art-meta">深潮TechFlow · 2026-11-21 <span class="art-tag">稳定币</span></div>
+  
+</div>
+<div class="art-item" data-tags="AI">
+  <div class="art-title">2. <a href="https://www.techflowpost.com/article/35474" target="_blank" rel="noopener">2026.11.18AI 泡沫已经破裂，散户却还在疯狂抄底：对冲基金老兵警告英伟达风险远未出清对冲基金投资人 Tom Thornton 剖析英伟达面临的监管与供应链重压，详解散户抄底陷阱与防御性配置。黄金英伟达白银宏观人工智能2026.11.18黄金英伟达白银宏观人工智能</a></div>
+  <div class="art-meta">深潮TechFlow · 2026-11-18 <span class="art-tag">AI</span></div>
+  
+</div>
+<div class="art-item" data-tags="稳定币">
+  <div class="art-title">3. <a href="https://www.techflowpost.com/article/35433" target="_blank" rel="noopener">2026.11.17加密市场中性策略经理的十年：达摩克利斯之剑下的超额收益与零踩雷实录完美避开 FTX 浩劫到掌舵 Spark 33 亿美元流动性帝国，十年加密市场中性策略经理的实录与思考。稳定币AAVEDeFI套利2026.11.17稳定币AAVEDeFI套利</a></div>
+  <div class="art-meta">深潮TechFlow · 2026-11-17 <span class="art-tag">稳定币</span></div>
+  
+</div>
+<div class="art-item" data-tags="">
+  <div class="art-title">4. <a href="https://www.theblockbeats.info/flash/378520" target="_blank" rel="noopener">社区激辩加密牛市为何「迟到」，AI泡沫破裂、流动性紧缩或为主因</a></div>
+  <div class="art-meta">律动BlockBeats · 2026-11-22 </div>
+  
+</div>
+<div class="art-item" data-tags="">
+  <div class="art-title">5. <a href="https://www.theblockbeats.info/flash/378579" target="_blank" rel="noopener">Abraxas Capital在市场下跌期间买入8.97亿美元BTC</a></div>
+  <div class="art-meta">律动BlockBeats · 2026-11-22 </div>
+  
+</div>
+<div class="art-item" data-tags="">
+  <div class="art-title">6. <a href="https://www.odaily.news/zh-CN/newsflash/537530" target="_blank" rel="noopener">Mt. Gox前CEO质疑Pump.fun停用外部钱包登录，警告输入私钥存在安全风险</a></div>
+  <div class="art-meta">Odaily星球日报 · 2026-11-22 </div>
+  
+</div>
+<div class="art-item" data-tags="">
+  <div class="art-title">7. <a href="https://www.panewslab.com/zh/articles/01a201c1-0a33-75d3-b6ed-44c5c1eec5be" target="_blank" rel="noopener">Tether在巴西、亚洲、瑞士布局支付基础设施。</a></div>
+  <div class="art-meta">PANews · 2026-11-22 </div>
+  
+</div>
+<div class="art-item" data-tags="">
+  <div class="art-title">8. <a href="https://www.panewslab.com/zh/articles/01a20295-85b3-70a7-8d8b-0e9543cd5765" target="_blank" rel="noopener">恶意广告团伙MoldyRoost被曝利用iPhone漏洞链窃取加密钱包助记词</a></div>
+  <div class="art-meta">PANews · 2026-11-22 </div>
+  
+</div>
+<div class="art-item" data-tags="">
+  <div class="art-title">9. <a href="https://www.odaily.news/zh-CN/newsflash/537493" target="_blank" rel="noopener">Pump.fun将于11月30日起停用外部钱包登录</a></div>
+  <div class="art-meta">Odaily星球日报 · 2026-11-22 </div>
+  
+</div>
+<div class="art-item" data-tags="">
+  <div class="art-title">10. <a href="https://www.panewslab.com/zh/articles/01a20094-27f7-7232-bfe4-7c0ef4109c19" target="_blank" rel="noopener">PANews 11月22日消息，据 Onchain Lens 监测，Abraxas Capital 在行情回调期间买入价值 8.97 亿美元的比特币。在过去 24 小时内，Abraxas Capital 从 Kraken 和币安累计买入了约 1.513 万枚比特币，总值约 8.97 亿美元。其中，最新的一笔提币操作从 Kraken 平台转出了 3860 枚 BTC（约 2.3192 亿美元）。</a></div>
+  <div class="art-meta">PANews · 2026-11-22 </div>
+  
+</div>
+<div class="art-item" data-tags="">
+  <div class="art-title">11. <a href="https://www.panewslab.com/zh/articles/01a20124-7f44-721b-9fca-d6ba733287ae" target="_blank" rel="noopener">PANews 11月22日消息，专注于社交功能的 L2 网络 Cyber 发文表示，正在调查 CYBER 代币在 Solana 上出现异常铸造，又有 CYBER 从跨链桥的以太坊锁定池中被转出的事件，并正核实受影响的资产及跨链路径。Cyber 提醒用户，在此期间，暂停使用 CYBER 跨链桥，也请勿将 CYBER 充值至交易所，并表示无需迁移代币、连接钱包或签名。事件原因仍在调查中。</a></div>
+  <div class="art-meta">PANews · 2026-11-22 </div>
+  
+</div>
+<div class="art-item" data-tags="稳定币">
+  <div class="art-title">12. <a href="https://www.odaily.news/zh-CN/newsflash/537452" target="_blank" rel="noopener">Tether Treasury向未知钱包转移约1.43亿枚USDT，价值约1.42亿美元</a></div>
+  <div class="art-meta">Odaily星球日报 · 2026-11-21 <span class="art-tag">稳定币</span></div>
+  
+</div>
+<div class="art-item" data-tags="">
+  <div class="art-title">13. <a href="https://www.panewslab.com/zh/articles/01a1fd93-fa20-74a4-9d10-bd05ace5b05b" target="_blank" rel="noopener">江卓尔：加密熊市尚未结束，市场至少需2至3个月底部震荡</a></div>
+  <div class="art-meta">PANews · 2026-11-21 </div>
+  
+</div>
+<div class="art-item" data-tags="">
+  <div class="art-title">14. <a href="https://www.panewslab.com/zh/articles/01a1fdc9-274d-76e4-adec-8cabc04a34ad" target="_blank" rel="noopener">PANews 11月21日消息，据Cryptobriefing报道，比特币财库公司Twenty One Capital正利用近期市场下跌增持比特币。该公司周六宣布增持了价值1000万美元的比特币，使其总持仓量达到约43,841枚BTC，按当前市场价格计算价值约25亿美元。Twenty One本周已进行两次比特币购买，包括11月16日以1000万美元购买的154枚BTC。</a></div>
+  <div class="art-meta">PANews · 2026-11-21 </div>
+  
+</div>
+<div class="art-item" data-tags="">
+  <div class="art-title">15. <a href="https://www.panewslab.com/zh/articles/01a1fe97-0298-749a-8daa-21ae94f24633" target="_blank" rel="noopener">PANews 11月21日消息，据Lookonchain监测，Abraxas Capital今日似乎逢跌买入比特币，以约58651美元均价买入10356枚BTC（6.07亿美元）。</a></div>
+  <div class="art-meta">PANews · 2026-11-21 </div>
+  
+</div>
+<div class="art-item" data-tags="">
+  <div class="art-title">16. <a href="https://www.panewslab.com/zh/articles/01a1fc8f-c2ff-7122-9c23-1aab8bd61d35" target="_blank" rel="noopener">PANews 11月21日消息，据 Lookonchain 监测，与以太坊基金会关联的钱包（0x5CBC）在 30 分钟前又抛售了 2,500 枚 ETH，价值 388 万美元。</a></div>
+  <div class="art-meta">PANews · 2026-11-21 </div>
+  
+</div>
+<div class="art-item" data-tags="稳定币">
+  <div class="art-title">17. <a href="https://www.panewslab.com/zh/articles/01a1f871-106a-71d7-a9d6-25321d63deb5" target="_blank" rel="noopener">英伟达Q3营收同比增103.1%、Anthropic上市首日涨17%却未能稳住AI信仰，全球风险资产集体走弱；黑客已将新补丁数小时武器化，Lighter因API密钥泄露损失约1548万USDC，Sky单日流出逾22亿USDS。</a></div>
+  <div class="art-meta">PANews · 2026-11-21 <span class="art-tag">稳定币</span></div>
+  
+</div>
+<div class="art-item" data-tags="">
+  <div class="art-title">18. <a href="https://www.techflowpost.com/article/35563" target="_blank" rel="noopener">2026.11.20DeFi 能否真正为真实世界的贷款风险定价？DeFi 难以仅靠滞后净值与自动清算，为代币化私人信贷的真实信用风险定价。DeFiRWA代币化借贷信贷2026.11.20DeFiRWA代币化借贷信贷</a></div>
+  <div class="art-meta">深潮TechFlow · 2026-11-20 </div>
+  
+</div>
+<div class="art-item" data-tags="">
+  <div class="art-title">19. <a href="https://www.theblockbeats.info/flash/378450" target="_blank" rel="noopener">以太坊Glamsterdam升级推迟至2027年1月，因合约部署费用大幅提高</a></div>
+  <div class="art-meta">律动BlockBeats · 2026-11-20 </div>
+  
+</div>
+<div class="art-item" data-tags="">
+  <div class="art-title">20. <a href="https://www.theblockbeats.info/flash/378324" target="_blank" rel="noopener">Anthropic IPO打新结果出炉：Bitget获配1276万美元，Binance钱包仅获配24.5万美元</a></div>
+  <div class="art-meta">律动BlockBeats · 2026-11-20 </div>
+  
+</div>
+
+</section>
+
+</div>
+
+<aside class="sidebar">
+  <div class="sidebar-card funding-card">
+  <div class="sidebar-title">💰 当周最大投融资</div>
+  <div class="funding-amount">$900.0B</div>
+  <div class="funding-detail"><a href="https://www.techflowpost.com/article/35417" target="_blank" rel="noopener">2026.11.17Anthropic 2026 最新财务估值模型，8000 亿美元 ARR 路线与算力租约穿透推演 2030 年 8000 亿美元 ARR 路径、企业级代币支出份额与 $9000 亿算力承诺对冲逻辑。代币美元企业算力Anthropic模型2026.11.17代币美元企业算力Anthropic模型</a></div>
+  <div class="funding-meta">深潮TechFlow</div>
+</div>
+  <div class="sidebar-card">
+    <div class="sidebar-title">📂 分类概览</div>
+    <a href="#" class="cat-nav-item" data-target="政策法规" style="border-left:3px solid #e74c3c">📜 政策法规 <span>15</span></a>
+<a href="#" class="cat-nav-item" data-target="技术解读" style="border-left:3px solid #9b59b6">⚙️ 技术解读 <span>9</span></a>
+<a href="#" class="cat-nav-item" data-target="深度文章" style="border-left:3px solid #2ecc71">📝 深度文章 <span>2</span></a>
+<a href="#" class="cat-nav-item" data-target="行业报告" style="border-left:3px solid #3498db">📊 行业报告 <span>4</span></a>
+<a href="#" class="cat-nav-item" data-target="市场动态" style="border-left:3px solid #f39c12">📡 市场动态 <span>20</span></a>
+
+  </div>
+  <div class="sidebar-card">
+    <div class="sidebar-title">🔗 快速链接</div>
+    <a class="cat-nav-item" href="all.html">📚 全量信息汇总</a>
+    <a class="cat-nav-item" href="archive.html">📁 历史资讯</a>
+  </div>
+</aside>
+</div>
+
+<footer>区块链最新资讯 · <a href="all.html">全量信息汇总</a></footer>
+</div>
+
+<script>
+// ── 筛选逻辑 ──
+(function(){
+  let activeCat = 'all', activeTag = null;
+  function applyFilters() {
+    document.querySelectorAll('.category-section').forEach(sec => {
+      sec.classList.toggle('hidden', activeCat !== 'all' && sec.dataset.cat !== activeCat);
+    });
+    document.querySelectorAll('.art-item').forEach(item => {
+      const tags = item.dataset.tags ? item.dataset.tags.split(',') : [];
+      item.classList.toggle('tag-hidden', !!activeTag && !tags.includes(activeTag));
+    });
+    document.querySelectorAll('.category-section:not(.hidden)').forEach(sec => {
+      if (activeTag && !sec.querySelector('.art-item:not(.tag-hidden)')) sec.classList.add('hidden');
+    });
+  }
+  document.querySelectorAll('.filter-btn[data-filter]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn[data-filter]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeCat = btn.dataset.filter;
+      applyFilters();
+    });
+  });
+  document.querySelectorAll('.filter-btn[data-tag]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const wasActive = btn.classList.contains('active');
+      document.querySelectorAll('.filter-btn[data-tag]').forEach(b => b.classList.remove('active'));
+      activeTag = wasActive ? null : btn.dataset.tag;
+      if (!wasActive) btn.classList.add('active');
+      applyFilters();
+    });
+  });
+  document.querySelectorAll('.cat-nav-item[data-target]').forEach(nav => {
+    nav.addEventListener('click', e => {
+      e.preventDefault();
+      const target = nav.dataset.target;
+      document.querySelectorAll('.filter-btn[data-filter]').forEach(b => {
+        b.classList.toggle('active', b.dataset.filter === target);
+      });
+      activeCat = target;
+      applyFilters();
+      document.querySelector('.filter-bar').scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  });
+})();
+// 主题切换
+(function(){
+  const btn = document.getElementById('theme-toggle');
+  if (localStorage.getItem('theme') === 'light') {
+    document.body.classList.add('light');
+    btn.textContent = '🌙 深色';
+  }
+  btn.addEventListener('click', () => {
+    document.body.classList.toggle('light');
+    const isLight = document.body.classList.contains('light');
+    btn.textContent = isLight ? '🌙 深色' : '☀️ 浅色';
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  });
+})();
+</script>
+</body>
+</html>
